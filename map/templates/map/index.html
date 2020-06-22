@@ -1,0 +1,261 @@
+{% load staticfiles %}
+
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900%7CPoppins:700" rel="stylesheet" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+   <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+   <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+   <link rel="stylesheet" href="{% static "css/main.css" %}">
+</head>
+
+<body><!-- the style of search block was referenced from Colorlib (https://colorlib.com) -->
+<div id="map"></div>
+<div class="s011">
+<nav> <a href="" class="menuToggle" id="menuToggleIcon" title="Go Back" style="display: none"> <span class="navClosed"><i>Go Back</i></span></a>
+
+
+        <form>
+            <fieldset>
+                <legend>Dublin Bus</legend>
+            </fieldset>
+            <div class="inner-form">
+                <div class="main-form" id="main-form">
+                    <div class="row">
+                        <div class="input-wrap">
+                            <div class="icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                                </svg>
+                            </div>
+                            <div class="input-field">
+                                <label>Start</label>
+                                <input type="text" class="locationInput" id="startInput" placeholder="Please type in your start" />
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-wrap">
+                            <div class="icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"></path>
+                                </svg>
+                            </div>
+                            <div class="input-field">
+                                <label>Destination</label>
+                                <input type="text" class="locationInput" id="destitationInput" placeholder="Please type in your destination" />
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row second">
+                        <div class="input-wrap">
+                            <div class="icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="612" height="612" viewBox="0 0 612 612">
+                                    <path d="M543.981,160.777l-18.297,18.571c44.158,52.077,68.485,121.464,61.039,196.445   c-12.315,124.002-112.79,223.666-236.88,235.068c-146.688,13.479-271.77-94.371-286.28-234.55H37.712   c-15.717,0-25.54-17.015-17.681-30.626L77.85,245.565c7.859-13.609,27.503-13.608,35.361,0.001l57.806,100.122   c7.859,13.61-1.964,30.624-17.681,30.624h-22.505c14.622,104.658,112.057,183.152,223.772,166.778   c82.668-12.116,149.722-77.337,163.773-159.697c21.031-123.271-73.828-230.558-193.271-230.558   c-38.734,0-76.119,11.237-108.234,32.52c-14.904,9.876-35.564,7.922-46.498-6.224c-11.906-15.401-8.188-37.389,7.687-48.109   c34.455-23.276,73.515-37.822,114.438-42.886V50.184h-26.784c-9.216,0-16.686-7.47-16.686-16.686V16.686   C249.028,7.471,256.5,0,265.714,0h124.21c9.216,0,16.686,7.471,16.686,16.686v16.812c0,9.215-7.47,16.686-16.686,16.686h-29.501   v38.348c52.534,7.088,100.161,29.78,138.142,63.186l16.975-17.229l-12.439-11.499c-6.767-6.254-7.183-16.812-0.927-23.579   l13.31-14.4c6.255-6.768,16.812-7.183,23.579-0.928l50.312,46.505c6.769,6.255,7.183,16.812,0.929,23.579l-13.31,14.399   c-6.255,6.767-16.812,7.183-23.579,0.928L543.981,160.777z M361.604,314.24c-23.084-23.57-62.787-21.009-82.25,8.07   c-11.684,17.455-11.505,41.047,0.298,58.42c14.344,21.111,39.598,27.998,61.139,20.692l67.067,54.629   c12.822,10.443,29.816-6.398,19.489-19.313L373.5,369.393C380.224,350.844,376.333,329.28,361.604,314.24z" />
+                                </svg>
+                            </div>
+                            <div class="input-field">
+                                <label>When</label>
+                                <div class="input-select">
+                                    <select data-trigger="" name="choices-single-defaul" class="nowOrLater" onchange="hideTimeAndDataPicker()">
+                                        <option placeholder="" value="Now">Now</option>
+                                        <option value="Later">Later</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="input-wrap" id="timediv" style="display: none">
+                            <div class="icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="612" height="612" viewBox="0 0 612 612">
+                                    <path d="M234.709,488.739l23.402-52.086l23.394,52.086H234.709z M77.87,331.9l52.086-23.402L77.87,285.104V331.9z M258.111,180.351   l23.394-52.085H234.71L258.111,180.351z M360.926,205.769l-41.549,92.568c3.176,19.145-2.549,39.494-17.289,54.232   c-14.738,14.739-35.086,20.464-54.232,17.289l-92.568,41.548l41.548-92.567c-3.175-19.145,2.549-39.494,17.289-54.233   c14.738-14.739,35.087-20.464,54.232-17.288L360.926,205.769z M272.88,293.814c-8.145-8.145-21.4-8.145-29.545,0   c-8.145,8.146-8.145,21.4,0,29.545c8.146,8.146,21.4,8.146,29.545,0C281.025,315.215,281.025,301.959,272.88,293.814z    M438.344,331.9v-46.795l-52.086,23.394L438.344,331.9z M598.211,601.126c1.797,6.316-3.916,12.21-10.285,10.608L453.25,577.884   c-6.369-1.601-8.616-9.496-4.046-14.212l15.678-16.173c3.279-3.383,3.195-8.783-0.188-12.062l-44.859-43.489   c-43.152,38.106-99.768,61.302-161.728,61.302c-134.909,0-244.663-109.756-244.663-244.663   c0-115.083,86.488-243.566,244.663-243.566c66.785,0,120.311,22.302,160.103,56.588l46.482-45.058   c3.383-3.28,3.467-8.68,0.188-12.062l-15.675-16.17c-4.571-4.716-2.323-12.612,4.046-14.211L587.937,0.266   c6.368-1.601,12.081,4.294,10.283,10.61L560.2,144.435c-1.798,6.316-9.759,8.318-14.33,3.603l-15.674-16.169   c-3.279-3.383-8.681-3.467-12.063-0.187l-50.602,49.051c23.349,39.495,35.239,84.619,35.239,127.855   c0,45.234-12.387,87.61-33.877,124l49.233,47.729c3.383,3.279,8.784,3.196,12.063-0.188l15.68-16.175   c4.57-4.716,12.532-2.714,14.329,3.603L598.211,601.126z M455.012,308.588c0-108.571-88.33-196.906-196.905-196.906   c-108.574,0-196.905,88.335-196.905,196.906c0,108.57,88.331,196.904,196.905,196.904   C366.681,505.492,455.012,417.158,455.012,308.588z"></path>
+                                </svg>
+                            </div>
+                            <div class="input-field">
+                                <label>Time</label>
+                                <input class="timepicker" type="text" placeholder="hh/mm" />
+                            </div>
+                        </div>
+                        <div class="input-wrap" id="datediv" style="display: none">
+                            <div class="icon-wrap">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                    <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"></path>
+                                </svg>
+                            </div>
+                            <div class="input-field">
+                                <label>Date</label>
+                                <input class="datepicker" type="text" placeholder="mm/dd/yy" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row last">
+                        <button type="button" id="searchButtonforSmallScreen" class="searchInformation">Search</button>
+                        <button type="button" id="searchButtonforBigScreen" class="searchInformation">Search</button>
+                    </div>
+                </div>
+            </div>
+            <div class="information">
+                <div class="routes">
+                    <div class="icons">
+                       <table>
+                       <tr class="headRow">
+                        <th class="icon0" style="height: 100%; width: 20%; float: left; text-align: center"><object style="text-align: center" data="{% static "images/clock.gif" %}" height="65%"></object></th>
+                        <th class="icon1" style="height: 100%; width: 20%; float: left; text-align: center"><object data="{% static "images/time.gif" %}" height="65%"></object></th>
+                        <th class="icon2" style="height: 100%; width: 40%; float: left; text-align: center"><object data="{% static "images/bus.gif" %}" height="65%"></object></th>
+                        <th class="icon3" style="height: 100%; width: 20%; float: left; text-align: center"><object data="{% static "images/euro.gif" %}" height="65%"></object></th>
+                        </tr>
+                       </table>
+                    </div>
+                    <div class="details" style="display: block"></div>
+                    <div id="showFare" style="display: none; color: white">
+                                <h1 style="color: #e67600; text-align: center">Journey Fare</h1>
+                                <p>Adult (Cash):</p>
+                                <p>Adult (Leap Card):</p>
+                                <p>Child Under 16 (Cash):</p>
+                                <p>Child Under 19 (Leap Card):</p>
+
+
+                                <i class="fa fa-arrow-left" onclick="javascript: $('#showFare').css('display','none'); javascript: $('.details').css('display','block'); javascript: $('tr').not('.headRow').addClass('routeOptions');" style="color: #e67600; font-size: 3rem; font-weight: 700; position: relative; left: 85%; cursor: hand"></i>
+
+
+                    </div>
+                    <div class="detailForRoute" style="display: none"><p style="color: white">
+                        <div style="display: none" id="NowSingle">
+                            <h1 style="color: #e67600; text-align: center" id="detailText">Detail</h1>
+                            <ul>
+                                <li>Route</li>
+                                <li>Stop Number</li>
+                                <li>Arrives In</li>
+                                <li>Estimate Journey Time</li>
+                            </ul>
+                                <i class="fa fa-arrow-left" onclick="javascript: $('.detailForRoute').css('display','none'); javascript: $('.details').css('display','block'); showStartJourney()" style="color: #e67600; font-size: 3rem; font-weight: 700; position: relative; left: 85%; bottom: 5rem; cursor: hand"></i>
+                        </div>
+                        <div style="display: none" id="NowMultiple">
+                           <h1 style="color: #e67600; text-align: center" id="detailText">Detail</h1>
+                            <ul>
+                                <li>Route</li>
+                                <li>Transfer Stop</li>
+                                <li>Stage 1 Stop Number</li>
+                                <li>Stage 2 Stop Number</li>
+                                <li>Arrives In</li>
+                                <li>Estimate Transfer Time</li>
+                                <li>Estimate Journey Time</li>
+                            </ul>
+                            <i class="fa fa-arrow-left" onclick="javascript: $('.detailForRoute').css('display','none'); javascript: $('.details').css('display','block'); showStartJourney()" style="color: #e67600; font-size: 3rem; font-weight: 700; position: relative; left: 85%; bottom: 5rem; cursor: hand"></i>
+                        </div>
+                        <div style="display: none" id="LaterSingle">
+                           <h1 style="color: #e67600; text-align: center" id="detailText">Detail</h1>
+                            <ul>
+                                <li>Route</li>
+                                <li>Stop Number</li>
+                                <li>Departure Time</li>
+                                <li>Estimate Journey Time</li>
+                            </ul>
+                            <i class="fa fa-arrow-left" onclick="javascript: $('.detailForRoute').css('display','none'); javascript: $('.details').css('display','block'); showStartJourney()" style="color: #e67600; font-size: 3rem; font-weight: 700; position: relative; left: 85%; bottom: 5rem; cursor: hand"></i>
+                        </div>
+                        <div style="display: none" id="LaterMultiple">
+                           <h1 style="color: #e67600; text-align: center" id="detailText">Detail</h1>
+                            <ul>
+                                <li>Route</li>
+                                <li>Transfer Stop</li>
+                                <li>Stage 1 Stop Number</li>
+                                <li>Stage 2 Stop Number</li>
+                                <li>Departure Time</li>
+                                <li>Estimate Transfer Time</li>
+                                <li>Estimate Journey Time</li>
+                            </ul>
+                            <i class="fa fa-arrow-left" onclick="javascript: $('.detailForRoute').css('display','none'); javascript: $('.details').css('display','block'); showStartJourney()" style="color: #e67600; font-size: 3rem; font-weight: 700; position: relative; left: 85%; bottom: 5rem; cursor: hand"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+</nav>
+</div>
+<button class="menuToggle" id="startjourney">Start Journey</button>
+<div id='loading'>
+<div id='wrapper' align="center">
+ <div align="center">
+ <h2 class='font'> Calculating journey... </h2>
+ <h4 class='font'> Multi-route may take up to 60 seconds </h4>
+</div>
+<div id='progressBar'>
+<div class='circle' id='topUp'></div>
+<div class='circle' id='topDown'></div>
+<div id='middleCircle'></div>
+<div class='circle' id='bottomUp'></div>
+</div>
+<h2 class='font' style="position: relative; top: 15rem"> Please select a route in the information block on the left after you get the result </h2>
+</div>
+</div>
+    <div id="loading_2"><img width="50%" height="28%" style="display: none" id="loading_icon" src="../../static/images/loading.gif"></div>
+    <div id="noResult"><p>Sorry, there is no possible route currently!</p>
+    <i class="fa fa-arrow-left" onclick="javascript: $('#noResult').hide();"></i>
+    </div>
+
+
+<!--JavaScript Part-->
+<!--Some of the JavaScript is included within .html file rather than as a separate .js file. This is to avoid a conflict between jinja2 template and the js.-->
+<script>
+ //Delete repeated options since some stops have the exactly same address even they have different stop IDs
+function deleteDuplicatedStops(array) {
+    var finalstopset = [];
+    for (var i = 0; i < array.length; i++) {
+        if (finalstopset.indexOf(array[i]) === -1) {
+            finalstopset.push(array[i]);
+        }
+    }
+    return finalstopset;
+}
+
+//Google Map initial function
+function initMap() {
+    var infoWindow = new google.maps.InfoWindow();
+    var latlngbounds = new google.maps.LatLngBounds();
+    var MapOption = {
+        center: {
+            lat: 53.350140,
+            lng: -6.266155
+        },
+        zoom: 14,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        gestureHandling: "greedy"
+    };
+    var map = new google.maps.Map(document.getElementById('map'), MapOption);
+    //Load JSON file about bus stop information when the page is loaded instead of requesting JSON data later
+    markers = {{JSONdata | safe}};
+    for (var i = 0; i < 30; i++) {
+        var busstop = markers[i];
+        var myLatlng = {
+            lat: busstop[3],
+            lng: busstop[4]
+        };
+    }
+
+    //A function to implement autocomplete about stop names with stop ID
+    $(function() {
+        var stopset = [];
+        for (var i = 0; i < markers.length; i++) {
+        stopset[i] = markers[i][2] + " (Stop " + markers[i][1] + ")";
+        }
+        $(".locationInput").autocomplete({
+            source: deleteDuplicatedStops(stopset)
+        });
+    });
+}
+</script>
+<script src="{% static "js/choices.js" %}"></script>
+<script src="{% static "js/flatpickr.js" %}"></script>
+<script src="{% static "js/main.js" %}"></script>
+<script src="{% static "js/pickers.js" %}"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFj_OVOzGe5xHdcq4CqpikFfrnk7AP1p8&callback=initMap" async defer></script>
+</body>
+</html>
